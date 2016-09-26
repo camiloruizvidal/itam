@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Documentacion del sistema milor</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div>
+            Esta es una breve documentacion del sistema.
+            <br>
+            El sistema esta desarrollado en php, usando el framework de adodb y adiciones de oderlogica.<br/>
+            Este sistema funciona con apache. Si desea usar otro servidor por favor verifique el redireccionamiento.
+            <br>
+            En primer lugar. Las plantillas deben usar un conjunto de etiquetas con esta denominacion <#--nombre_etiqueta--#>
+            <br>
+            Se trabaja con 4 etiquetas basicas en la plantilla.<br>
+            <table>
+                <tr>
+                    <td><#--titulo--#></td>
+                    <td>Es el title del head en html</td>
+                </tr>
+                <tr>
+                    <td><#--js--#></td>
+                    <td>Aqui se cargan todas las librerias de javascript. solo deben especificar la ruta y ya.</td>
+                </tr>
+                <tr>
+                    <td><#--css--#></td>
+                    <td>Aqui se cargan todas las librerias de css. solo deben especificar la ruta y ya.</td>
+                </tr>
+                <tr>
+                    <td><#--contenido--#></td>
+                    <td>Aqui es donde se muestra el contenido que se desarrolla.</td>
+                </tr>
+            </table>
+            Toda vista debe tener dos etiquetas, de apertura y cierre, que especifican al sistema donde está el codigo que se va  a mostrar.
+            <#--content_ini--#>
+            
+            <#--content_fin--#>
+        </div>
+    </body>
+</html>

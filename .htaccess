@@ -1,0 +1,14 @@
+ErrorDocument 404 /new/afiliados
+Options +FollowSymLinks
+RewriteEngine on
+#DirectoryIndex new/afiliados
+#DirectoryIndex view/form/newafiliado.html
+Rewriterule ^Ajax/(.*)$ view/Ajax/$1
+Rewriterule ^css/(.*)$ view/css/$1
+Rewriterule ^img/(.*)$ view/img/$1
+Rewriterule ^js/(.*)$ view/js/$1
+Rewriterule ^save/(.*)$ view/save/$1
+
+
+
+Rewriterule ^index/login$                  view/form/index.php
