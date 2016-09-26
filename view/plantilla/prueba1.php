@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html>
     <head>
         <meta charset="UTF-8">
@@ -13,7 +12,12 @@
     </head>
     <body>
         <div class="container-fluid">
+            <h1>Sistema de evaluacion docente en linea</h1>
             <#--contenido--#>
+            
+        </div>
+        <div class="footer">
+            Derechos de camilo ruiz
         </div>
     </body>
 </html>

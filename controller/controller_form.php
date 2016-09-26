@@ -3,12 +3,12 @@
 class controller_form
 {
 
-    public function __construct()
-    {
-        
-    }
-
     private $content;
+    private $url_error;
+    private $url_no_valido_user;
+    public $plantilla;
+    public $parametros;
+    public $sesiones;
 
     private function prepocesar($data)
     {
@@ -23,7 +23,7 @@ class controller_form
         $linea   = '';
         $copiar  = true;
         $iniciar = FALSE;
-        $url     = '../../../itam/view/form/index.php';
+        $url     = '../../..'.$_SERVER['PHP_SELF'];
         $fp      = fopen($url, 'r');
         while (!feof($fp))
         {
@@ -90,9 +90,37 @@ class controller_form
         return $res;
     }
 
-    public function create_formulario($plantilla, $parametros = '')
+    private function ValidarSesiones($sesiones)
     {
-        @session_start();
+        if ($sesiones != '')
+        {
+            @session_start();
+            if (isset($_SESSION['perfil']))
+            {
+                if (in_array($_SESSION['perfil'], $sesiones))
+                {
+                    
+                }
+                else
+                {
+                    exit('Redireccionar');
+                    //Redireccionar
+                }
+            }
+            else
+            {
+                exit('Redireccionar');
+            }
+        }
+    }
+
+    public function create()
+    {
+        $plantilla     = $this->plantilla;
+        $parametros    = $this->parametros;
+        $sesiones      = $this->sesiones;
+        
+        $this->ValidarSesiones($sesiones);
         $this->content = $this->read_content();
         $plantilla     = '../plantilla/' . $plantilla;
         $Formulario    = $this->leer_plantilla($plantilla);
@@ -110,11 +138,8 @@ class controller_form
                 $Formulario = str_replace('<#--' . $key . '--#>', $reg, $Formulario);
             }
         }
-        else
-        {
-            $Formulario = str_replace(array('<#--js--#>', '<#--titulo--#>', '<#--css--#>'), array('', '', ''), $Formulario);
-        }
-        echo ($Formulario);
+        $Formulario = str_replace(array('<#--js--#>', '<#--titulo--#>', '<#--css--#>'), array('', '', ''), $Formulario);
+        echo $Formulario;
         exit();
     }
 

@@ -12,3 +12,4 @@ Rewriterule ^save/(.*)$ view/save/$1
 
 
 Rewriterule ^index/login$                  view/form/index.php
+Rewriterule ^index/dos$                    view/form/dos.php
